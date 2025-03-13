@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between; /* Ensures proper spacing */
+    align-items: center;
+    background: #044e94;
+    color: white;
+    padding: 10px 20px;
+    height: 30px;
+    width: 100vw; /* Full width */
+    box-sizing: border-box; /* Prevents overflow */
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows elements to adjust */
+}
+
+.header-logo {
+    height: 20px;
+    max-width: 100px; /* Prevents it from getting too large */
+}
+
+.header-time {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    flex: 1;
+}

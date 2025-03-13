@@ -1,0 +1,34 @@
+.footer-container {
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+  }
+  
+  .ticker-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .ticker {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scrollTicker 15s linear infinite;
+  }
+  
+  @keyframes scrollTicker {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
