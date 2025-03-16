@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100vw; /* Full width */
-    height: 20px; /* Increased height for better visibility */
+    height: 40px; /* Increased height for better visibility */
     background: #59a4eb;
     color: white;
     display: flex;
@@ -25,7 +25,7 @@
 
 /* Logo */
 .header-logo {
-    height: 10px; /* Adjusted for better visibility */
+    height: 20px; /* Adjusted for better visibility */
     margin-right: 15px;
     max-width: 120px; /* Prevents excessive size */
 }

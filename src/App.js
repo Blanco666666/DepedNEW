@@ -85,6 +85,7 @@ const Kiosk = () => {
           
           {/* PDF Section */}
           <div className="new-container">
+              <PDFViewerKiosk />
           </div>
         </div>
       </div>
