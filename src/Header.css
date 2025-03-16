@@ -1,32 +1,61 @@
 .header {
-    display: flex;
-    justify-content: space-between; /* Ensures proper spacing */
-    align-items: center;
+    position: fixed; /* Keeps it at the top */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    height: 20px; /* Increased height for better visibility */
     background: #59a4eb;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    height: 30px;
-    width: 100vw; /* Full width */
     box-sizing: border-box; /* Prevents overflow */
+    z-index: 1000; /* Ensures it stays above other content */
 }
 
+/* Ensures content is properly spaced */
 .header-content {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows elements to adjust */
+    flex-wrap: wrap;
 }
 
+/* Logo */
 .header-logo {
-    height: 20px;
-    margin-right: 10px;
-    max-width: 100px; /* Prevents it from getting too large */
+    height: 10px; /* Adjusted for better visibility */
+    margin-right: 15px;
+    max-width: 120px; /* Prevents excessive size */
 }
 
+/* Time Display */
 .header-time {
     font-size: 18px;
     font-weight: bold;
     text-align: right;
     flex: 1;
+}
+
+/* Ensures the rest of the content doesn't overlap the header */
+.kiosk-container {
+    padding-top: 60px; /* Adjusted to avoid header overlap */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        height: 45px;
+        padding: 8px 15px;
+    }
+
+    .header-logo {
+        height: 25px;
+        max-width: 100px;
+    }
+
+    .header-time {
+        font-size: 16px;
+    }
 }

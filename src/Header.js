@@ -18,7 +18,7 @@ const KioskHeader = () => {
         {/* Logo on the left */}
         <img src="https://cert.depedcaraga.site/images/depedcaraga_logo.png" alt="Kiosk Logo" className="header-logo" />
         <img src="https://logolook.net/wp-content/uploads/2021/06/DepEd-Logo.svg" alt="Kiosk Logo" className="header-logo" />
-
+        <img src="https://th.bing.com/th/id/OIP.LeXm-b-7jgSFT11ufCc2xQAAAA?rs=1&pid=ImgDetMain" alt="Kiosk Logo" className="header-logo" />
 
         {/* Date & Time on the right */}
         <div className="header-time">

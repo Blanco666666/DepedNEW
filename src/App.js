@@ -4,15 +4,18 @@ import { useDrag } from "@use-gesture/react";
 import "./App.css";
 import KioskHeader from "./Header";
 import KioskFooter from "./Footer";
-
-const { Content } = Layout;
+import PDFViewerKiosk from "./PDFViewerKiosk";
 
 const Kiosk = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const openModal = () => setIsModalVisible(true);
-  const closeModal = () => setIsModalVisible(false);
+  const [isExternalModalVisible, setIsExternalModalVisible] = useState(false);
+  const [isInternalModalVisible, setIsInternalModalVisible] = useState(false);
 
-  // Video List
+  const openExternalModal = () => setIsExternalModalVisible(true);
+  const closeExternalModal = () => setIsExternalModalVisible(false);
+
+  const openInternalModal = () => setIsInternalModalVisible(true);
+  const closeInternalModal = () => setIsInternalModalVisible(false);
+
   const videos = [
     "/SnapTik_App_7464290425516428590-HD.mp4",
     "/ssstik.io_1740660246436.mp4",
@@ -21,7 +24,6 @@ const Kiosk = () => {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  // Swipe Gesture for Video Navigation
   const bind = useDrag(
     ({ movement: [mx], direction: [dx], swipe: [swipeX], cancel }) => {
       if (Math.abs(mx) < 50) return;
@@ -40,10 +42,18 @@ const Kiosk = () => {
   );
 
   return (
-    <Layout className="kiosk-container">
+    <Layout
+      className="kiosk-container"
+      style={{
+        backgroundImage: `url("${process.env.PUBLIC_URL}/bg.png")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <KioskHeader />
 
       <div className="kiosk-grid">
+        {/* Video Section */}
         <div className="video-container">
           <div {...bind()} className="video-wrapper">
             <video key={videos[currentVideoIndex]} autoPlay loop muted className="video-bg">
@@ -53,6 +63,7 @@ const Kiosk = () => {
           </div>
         </div>
 
+        {/* Website Section */}
         <div className="website-container">
           <iframe
             src="https://your-wordpress-site.com"
@@ -61,36 +72,61 @@ const Kiosk = () => {
           ></iframe>
         </div>
 
+        {/* Forms and PDF Section */}
         <div className="forms-new-container">
           <div className="forms-container">
-            <button className="touch-button" onClick={openModal}>
-              Open Google Form
+            <button className="touch-button" onClick={openExternalModal}>
+              External
+            </button>
+            <button className="touch-button" onClick={openInternalModal}>
+              Internal
             </button>
           </div>
+          
+          {/* PDF Section */}
           <div className="new-container">
-            <h1>SUPPOSEDLY A PDF! BUT IM TIRED AS SHIT</h1>
-            <p>THIS PDF CONTAINS NUMBERS OF PDF FILES THAT USERS CAN SEARCH BY OF SPECIFIC PDF IDK WHAT THE FUCK IS THAT</p>
           </div>
         </div>
       </div>
 
+      {/* External Modal */}
       <Modal
-        title="Google Form"
-        open={isModalVisible}
-        onCancel={closeModal}
+        title="Google Form - External"
+        open={isExternalModalVisible}
+        onCancel={closeExternalModal}
         footer={null}
         width="100%"
         style={{ top: 0, padding: 0 }}
         bodyStyle={{ height: "100vh", padding: 0, overflow: "hidden" }}
       >
         <iframe
-          src="https://docs.google.com/forms/d/e/YOUR_CORRECT_GOOGLE_FORM_LINK/viewform"
+          src="https://csm.p2.depedcaraga.site/form/1/1/1/eyJpdiI6IlhBOC9HNFN0ZnZScUxWb1FhK2hiZ3c9PSIsInZhbHVlIjoidVBETnhSa2NOa3dNczA4L29zZ1RJUT09IiwibWFjIjoiZWI1ODJkNGY3MDIzZTNlNmNlMzY0YWUyN2MzNjk0YTk4MDYyZWQ2Mjc0MzdkYTViOGI1Nzk0ODM5NDFjZWQ5MiIsInRhZyI6IiJ9"
           width="100%"
           height="100%"
           style={{ border: "none" }}
-          title="Google Form"
+          title="Google Form - External"
         ></iframe>
       </Modal>
+
+      {/* Internal Modal */}
+      <Modal
+        title="Google Form - Internal"
+        open={isInternalModalVisible}
+        onCancel={closeInternalModal}
+        footer={null}
+        width="100%"
+        style={{ top: 0, padding: 0 }}
+        bodyStyle={{ height: "100vh", padding: 0, overflow: "hidden" }}
+      >
+        <iframe
+          src="https://csm.p2.depedcaraga.site/form/1/1/0/eyJpdiI6IkpPUndiK3JWMWZWT0dDRGxHRDNYaWc9PSIsInZhbHVlIjoiNWpzVy9KR0dNMUIvcndCWHhuNWxsQT09IiwibWFjIjoiYTdhYmZkYmYzZmI1YzM3ZGE2MWExZjRhMzIzMTEwYzY0Y2EwN2I4ZWNjYmVhZjQxYWQyMTJjMDNlNDMxYTE2MSIsInRhZyI6IiJ9"
+          width="100%"
+          height="100%"
+          style={{ border: "none" }}
+          title="Google Form - Internal"
+        ></iframe>
+      </Modal>
+
       <KioskFooter />
     </Layout>
   );
