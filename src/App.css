@@ -65,7 +65,7 @@
 
 /* Forms and Buttons */
 .forms-container {
-  background-image: url("../public/1.png"); /* Use absolute path for public folder */
+  background-image: url("../public/bg1.png"); /* Use absolute path for public folder */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -149,7 +149,7 @@
   border-radius: 12px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
-  margin: 5px; /* Added margin to prevent buttons from sticking */
+  margin: 5px; 
 }
 
 .touch-button:hover {
